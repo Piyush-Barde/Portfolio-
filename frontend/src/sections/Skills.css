@@ -1,0 +1,80 @@
+.sk {
+  --sk-accent: var(--accent, #ff5a1f);
+  --sk-line: rgba(255, 255, 255, 0.12);
+  --sk-muted: rgba(244, 241, 236, 0.62);
+}
+
+.sk-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sk-tabs button {
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--sk-line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--sk-muted);
+  font: inherit;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.sk-tabs button:hover {
+  color: inherit;
+  border-color: color-mix(in srgb, var(--sk-accent) 55%, transparent);
+}
+
+.sk-tabs button.is-active {
+  border-color: var(--sk-accent);
+  background: color-mix(in srgb, var(--sk-accent) 14%, transparent);
+  color: var(--sk-accent);
+}
+
+.sk-tabs button:focus-visible {
+  outline: 2px solid var(--sk-accent);
+  outline-offset: 3px;
+}
+
+.sk-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sk-tiles li {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--sk-line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.025);
+  font-weight: 500;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.sk-tiles li:hover {
+  border-color: color-mix(in srgb, var(--sk-accent) 55%, transparent);
+  transform: translateY(-3px);
+}
+
+.motion .sk-tiles li {
+  animation: sk-in 0.45s ease backwards;
+  animation-delay: calc(var(--i) * 0.06s);
+}
+
+.motion .sk:not(.is-in) .sk-tiles li {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes sk-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}

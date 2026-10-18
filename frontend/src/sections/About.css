@@ -1,0 +1,44 @@
+.about-focus {
+  --ab-accent: var(--accent, #ff5a1f);
+  --ab-line: rgba(255, 255, 255, 0.12);
+}
+
+.about-focus h3 {
+  margin: 0 0 0.9rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.about-focus ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-focus li {
+  position: relative;
+  padding: 0.75rem 0 0.75rem 1.5rem;
+  border-top: 1px solid var(--ab-line);
+  transition: opacity 0.5s ease calc(var(--i) * 0.12s),
+    transform 0.5s ease calc(var(--i) * 0.12s);
+}
+
+.about-focus li:last-child {
+  border-bottom: 1px solid var(--ab-line);
+}
+
+.about-focus li::before {
+  content: "";
+  position: absolute;
+  top: 1.2rem;
+  left: 0;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--ab-accent);
+}
+
+.motion .about-focus:not(.is-in) li {
+  opacity: 0;
+  transform: translateX(-12px);
+}

@@ -1,0 +1,94 @@
+.edu-list {
+  --ed-accent: var(--accent, #ff5a1f);
+  --ed-line: rgba(255, 255, 255, 0.12);
+  --ed-muted: rgba(244, 241, 236, 0.62);
+
+  display: grid;
+  gap: 1.25rem;
+}
+
+.edu-card {
+  padding: clamp(1.1rem, 3vw, 1.75rem);
+  border: 1px solid var(--ed-line);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.025);
+  transition: border-color 0.25s, transform 0.25s, opacity 0.6s ease;
+}
+
+.edu-card:hover {
+  border-color: color-mix(in srgb, var(--ed-accent) 55%, transparent);
+  transform: translateY(-2px);
+}
+
+.motion .edu-card:not(.is-in) {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.edu-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+
+.edu-card h3 {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  line-height: 1.2;
+}
+
+.edu-place,
+.edu-dates {
+  margin: 0.25rem 0 0;
+  color: var(--ed-muted);
+  font-size: 0.95rem;
+}
+
+.edu-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.edu-side .edu-dates {
+  margin: 0;
+}
+
+.edu-grade {
+  padding: 0.2rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--ed-accent) 60%, transparent);
+  border-radius: 999px;
+  color: var(--ed-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.edu-degree {
+  margin: 1rem 0 0;
+  font-weight: 500;
+}
+
+.edu-courses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.edu-courses li {
+  padding: 0.25rem 0.7rem;
+  border: 1px solid var(--ed-line);
+  border-radius: 999px;
+  color: var(--ed-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 560px) {
+  .edu-side {
+    align-items: flex-start;
+  }
+}

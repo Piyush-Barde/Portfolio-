@@ -1,0 +1,175 @@
+.exp-list {
+  --ex-accent: var(--accent, #ff5a1f);
+  --ex-line: rgba(255, 255, 255, 0.12);
+  --ex-muted: rgba(244, 241, 236, 0.62);
+
+  position: relative;
+  display: grid;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0 0 0 2rem;
+  list-style: none;
+}
+
+/* The vertical line grows down as the list scrolls into view. */
+.exp-list::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 0.3rem;
+  width: 1px;
+  background: var(--ex-line);
+  transform-origin: top;
+  transition: transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.motion .exp-list:not(.is-in)::before {
+  transform: scaleY(0);
+}
+
+.exp-item {
+  position: relative;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.motion .exp-item:not(.is-in) {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.exp-dot {
+  position: absolute;
+  top: 1.45rem;
+  left: -1.95rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.exp-dot.is-current {
+  background: var(--ex-accent);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--ex-accent) 60%, transparent);
+}
+
+.motion .exp-dot.is-current {
+  animation: exp-pulse 2.4s ease-out infinite;
+}
+
+@keyframes exp-pulse {
+  70%,
+  100% {
+    box-shadow: 0 0 0 10px transparent;
+  }
+}
+
+.exp-card {
+  padding: clamp(1.1rem, 3vw, 1.5rem);
+  border: 1px solid var(--ex-line);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.025);
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.exp-card:hover {
+  border-color: color-mix(in srgb, var(--ex-accent) 55%, transparent);
+  transform: translateY(-2px);
+}
+
+.exp-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+}
+
+.exp-card h3 {
+  margin: 0;
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  line-height: 1.2;
+}
+
+.exp-company {
+  margin: 0.25rem 0 0;
+  color: var(--ex-accent);
+  font-weight: 500;
+}
+
+.exp-dates {
+  margin: 0;
+  color: var(--ex-muted);
+  font-size: 0.9rem;
+}
+
+.exp-now {
+  margin-left: 0.6rem;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--ex-accent) 60%, transparent);
+  border-radius: 999px;
+  color: var(--ex-accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.exp-tags li {
+  padding: 0.2rem 0.65rem;
+  border: 1px solid var(--ex-line);
+  border-radius: 999px;
+  color: var(--ex-muted);
+  font-size: 0.82rem;
+}
+
+.exp-bullets {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.exp-bullets li {
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.exp-bullets li + li {
+  margin-top: 0.4rem;
+}
+
+.exp-bullets li::before {
+  content: "";
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--ex-accent);
+}
+
+.exp-impact {
+  margin-top: 1.1rem;
+  padding: 0.85rem 1rem;
+  border-left: 2px solid var(--ex-accent);
+  border-radius: 0 6px 6px 0;
+  background: color-mix(in srgb, var(--ex-accent) 8%, transparent);
+}
+
+.exp-impact p {
+  margin: 0;
+}
+
+.exp-impact .exp-impact-label {
+  margin-bottom: 0.2rem;
+  color: var(--ex-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+}

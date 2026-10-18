@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./ProfilePhoto.css";
-import { resolveImage } from "./image.js";
-import { site } from "./sitedata.js";
+import { resolveImage } from "./images.js";
+import { site } from "./siteData.js";
 
 // The photo and name come from siteData.js, so this file doesn't need editing.
 const photo = resolveImage(site.photo);

@@ -3,6 +3,9 @@
    YOUR SITE CONTENT: this is the only file you need to edit.
    Change the text, links, photo and projects below, save, done.
    (App.jsx and the other files just display whatever is here.)
+
+   Any section whose list is empty ( [] ) is hidden automatically,
+   and the section numbers update by themselves.
   ================================================================
 */
 
@@ -17,74 +20,142 @@ export const site = {
   availability: "Open to opportunities",
   caption: "BUILD · LEARN · IMPROVE", // small line under the hero photo
 
+  /* ---- Animations ----
+     true  = smooth entrances, count-up numbers, progress bar
+     false = a calm, static page
+     (People who switch off animations in their system settings always get the static page.) */
+  animations: true,
+
   /* ---- Your photo ----
-     Put the image anywhere inside src/ and point to it from here:
-       "./photo/Piyush_Barde-removebg.png"   (a file inside src/)
-       "/profile.jpg"                       (a file inside public/)
-       "https://example.com/me.jpg"         (an image on the web)
+     "./photo/Piyush_Barde-removebg.png"   (a file inside src/)
+     "/profile.jpg"                       (a file inside public/)
+     "https://example.com/me.jpg"         (an image on the web)
      If the image can't be found, a "PB." badge is shown instead. */
   photo: "./photo/Piyush_Barde-removebg.png",
 
-  /* ---- Links ----
-     Leave a link as "" to hide it. */
+  /* ---- Links ---- leave a link as "" to hide it. */
   email: "your.email@example.com", // TODO: put your real email
   github: "https://github.com/Piyush-Barde",
   linkedin: "#", // TODO: put your LinkedIn URL
   resume: "/resume.pdf", // put resume.pdf in the public/ folder
 
-  /* ---- Strip under the hero (add or remove items freely) ---- */
+  /* ---- Strip under the hero ---- */
   ticker: [
     "BASED IN INDIA",
     "PYTHON · REACT · MACHINE LEARNING",
     "AVAILABLE FOR OPPORTUNITIES",
   ],
 
-  /* ---- Featured project (currently hidden) ----
-     To show it again, replace `null` with the block below.
-     featured: {
-       title: "Your project name",
-       description: "One or two lines about what it does.",
-       flow: ["Users", "Web app", "API", "Processing", "Results"],
-     },
-  */
+  /* ---- Numbers under the hero. A number counts up; text (like "2027") is shown as is.
+     TODO: placeholders, replace with your real numbers. ---- */
+  stats: [
+    { value: 3, suffix: "+", label: "Projects built" },
+    { value: 5, suffix: "+", label: "Technologies used" },
+    { value: "2027", suffix: "", label: "Graduating" },
+  ],
+
+  /* ---- Featured project (currently hidden) ---- */
   featured: null,
 
   /* ---- About ---- */
   about: {
     note: "Curious by nature. Focused on impact.",
     text: "I’m an AI and Data Science student interested in machine learning and backend development. I enjoy turning real-world problems into practical software. Update this paragraph with your own story.",
-    skills: [
-      "Python",
-      "JavaScript",
-      "React",
-      "Machine Learning",
-      "Backend Development",
-      "Data Science",
+    focus: [
+      "Building machine learning projects from data to deployment",
+      "Learning backend development and clean API design",
+      "Turning real-world problems into practical software",
     ],
   },
 
-  /* ---- Projects: copy a block to add one, delete a block to remove one.
-     `image` is optional (same kind of path as `photo` above). ---- */
+  /* ---- Education (copy a block to add another) ---- */
+  education: [
+    {
+      school: "Your college name", // TODO
+      place: "City, State",
+      degree: "Your degree and branch",
+      dates: "20XX – 20XX",
+      grade: "CGPA X.X", // leave "" to hide
+      courses: ["Add key courses here", "Machine Learning", "Data Structures"],
+    },
+  ],
+
+  /* ---- Experience (newest first). Set `current: true` on the one you're doing now. ---- */
+  experience: [
+    {
+      role: "Role title", // TODO
+      company: "Company or organisation",
+      dates: "Month 20XX – Present",
+      current: true,
+      tags: ["Python", "React"],
+      bullets: ["What you built or owned, in one line."],
+      impact: "One sentence on the result, ideally with a number.",
+    },
+  ],
+
+  /* ---- Skills: each group becomes one tab. ---- */
+  skills: [
+    { name: "Languages", items: ["Python", "JavaScript"] },
+    { name: "AI & Data", items: ["Machine Learning", "Data Science"] },
+    { name: "Web & Backend", items: ["React", "Backend Development"] },
+  ],
+
+  /* ---- Main projects ----
+     summary : the problem it solves, in one line
+     results : 1–3 short bullets, numbers work best
+     diagram : a small animated flow. Or use `image` for a screenshot.
+     code / demo / image / status are optional: leave "" to hide. */
   projects: [
     {
       title: "Project One",
       type: "AI / MACHINE LEARNING",
-      description: "Add a short description of your project.",
+      status: "", // e.g. "In progress"
+      summary: "Add a short description of the problem this project solves.",
+      results: ["Add a result with a number, for example “cut manual work by 40%”."],
+      tags: ["Python", "Machine learning"],
+      meta: "Personal project · 2026",
+      code: "https://github.com/Piyush-Barde",
+      demo: "",
       image: "",
+      diagram: { label: "ML PIPELINE", steps: ["Data", "Features", "Model", "Results"], footer: "PYTHON" },
     },
     {
       title: "Project Two",
       type: "WEB DEVELOPMENT",
-      description: "Describe what you built and what it does.",
+      status: "",
+      summary: "Describe what you built and who it helps.",
+      results: ["Add what it does or how well it works."],
+      tags: ["React", "JavaScript"],
+      meta: "Personal project · 2026",
+      code: "https://github.com/Piyush-Barde",
+      demo: "",
       image: "",
+      diagram: { label: "WEB APP", steps: ["Browser", "React app", "API", "Database"], footer: "REACT" },
     },
     {
       title: "Project Three",
       type: "DATA / ANALYTICS",
-      description: "Add another project or remove this card.",
+      status: "",
+      summary: "Add another project or remove this block.",
+      results: ["Add a finding or outcome."],
+      tags: ["Python", "Data science"],
+      meta: "Personal project · 2026",
+      code: "https://github.com/Piyush-Barde",
+      demo: "",
       image: "",
+      diagram: { label: "DATA FLOW", steps: ["Source", "Clean", "Analyse", "Dashboard"], footer: "PYTHON" },
     },
   ],
+
+  /* ---- Smaller projects: one compact line each. Leave [] to hide. ---- */
+  moreProjects: [
+    { title: "Small project", summary: "One sentence about it.", tech: "Python · Pandas", link: "https://github.com/Piyush-Barde" },
+    { title: "Another small project", summary: "One sentence about it.", tech: "React · CSS", link: "" },
+  ],
+
+  /* ---- Achievements: hidden while empty.
+     Example: { title: "1st Prize, Hackathon", text: "One line.", badge: "Winner", image: "./photo/award.jpg", link: "" } */
+  achievements: [],
 
   /* ---- Contact section ---- */
   contact: {

@@ -1,0 +1,28 @@
+.stats {
+  --st-line: rgba(255, 255, 255, 0.12);
+  --st-muted: rgba(244, 241, 236, 0.62);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1.5rem 2rem;
+}
+
+.stat {
+  padding-top: 1rem;
+  border-top: 1px solid var(--st-line);
+}
+
+.stats .stat-value {
+  margin: 0;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.stats .stat-label {
+  margin: 0.5rem 0 0;
+  color: var(--st-muted);
+  font-size: 0.95rem;
+}

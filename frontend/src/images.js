@@ -15,7 +15,7 @@ export function resolveImage(path) {
 
   // Be forgiving: "./src/photo/x.png", "src/photo/x.png" and "photo/x.png" all mean "./photo/x.png".
   const inSrc = path.replace(/^\.?\/?src\//, "./");
-  const key = /^\.\//.test(inSrc) ? inSrc : `./${inSrc.replace(/^\//, "")}`;
+  const key = inSrc.startsWith("./") ? inSrc : `./${inSrc.replace(/^\//, "")}`;
   if (srcImages[key]) return srcImages[key]; // image inside src/
 
   if (path.startsWith("/")) return path; // image inside public/

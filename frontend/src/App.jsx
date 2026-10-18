@@ -1,8 +1,16 @@
 import { Fragment, useEffect, useState } from "react";
 import "./App.css";
-import ProfilePhoto from "./profilephoto.jsx";
-import { resolveImage } from "./image.js";
-import { site } from "./sitedata.js";
+import ProfilePhoto from "./ProfilePhoto.jsx";
+import { site } from "./siteData.js";
+import "./motion.css";
+import Stats from "./sections/Stats.jsx";
+import About from "./sections/About.jsx";
+import Education from "./sections/Education.jsx";
+import Experience from "./sections/Experience.jsx";
+import Skills from "./sections/Skills.jsx";
+import Projects from "./sections/Projects.jsx";
+import Achievements from "./sections/Achievements.jsx";
+import ScrollProgress from "./sections/ScrollProgress.jsx";
 
 /*
   This file only lays the page out. All of the text, links, photo and
@@ -10,6 +18,33 @@ import { site } from "./sitedata.js";
 */
 
 const fullName = `${site.firstName} ${site.lastName}`;
+
+// Sections that are shown, in page order. Empty lists drop out, so the
+// numbers (01, 02, ...) always count only what is visible.
+const order = [
+  "about",
+  site.education.length > 0 && "education",
+  site.experience.length > 0 && "experience",
+  site.skills.length > 0 && "skills",
+  (site.projects.length > 0 || site.moreProjects.length > 0) && "projects",
+  site.achievements.length > 0 && "achievements",
+  "resume",
+  "contact",
+].filter(Boolean);
+
+const names = {
+  about: "PROFILE",
+  education: "EDUCATION",
+  experience: "EXPERIENCE",
+  skills: "SKILLS",
+  projects: "SELECTED WORK",
+  achievements: "ACHIEVEMENTS",
+  resume: "RESUME",
+  contact: "GET IN TOUCH",
+};
+
+const label = (key) =>
+  `${String(order.indexOf(key) + 1).padStart(2, "0")} / ${names[key]}`;
 
 // Every contact link, by name. A link with an empty value is hidden.
 const allLinks = {
@@ -76,7 +111,8 @@ function App() {
   }
 
   return (
-    <div className="portfolio">
+    <div className={`portfolio${site.animations ? " motion" : ""}`}>
+      {site.animations && <ScrollProgress />}
       <header className="site-header">
         <a className="logo" href="#home">
           {site.initials}
@@ -158,64 +194,22 @@ function App() {
           </section>
         )}
 
-        <section className="content-section" id="about">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">01 / PROFILE</p>
-              <h2>About me</h2>
-            </div>
-            <p className="section-note">{site.about.note}</p>
-          </div>
+        <Stats stats={site.stats} animate={site.animations} />
 
-          <div className="about-grid">
-            <p>{site.about.text}</p>
-
-            <div className="skills" id="skills">
-              {site.about.skills.map((skill) => (
-                <span key={skill}>{skill}</span>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="content-section" id="projects">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">02 / SELECTED WORK</p>
-              <h2>Projects</h2>
-            </div>
-            <p className="section-note">Some things I’ve made</p>
-          </div>
-
-          <div className="project-grid">
-            {site.projects.map((project) => {
-              const image = resolveImage(project.image);
-
-              return (
-                <article className="project-card" key={project.title}>
-                  <div className="project-image">
-                    {image ? (
-                      <img
-                        src={image}
-                        alt={`${project.title} preview`}
-                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                      />
-                    ) : (
-                      "PROJECT PREVIEW"
-                    )}
-                  </div>
-                  <p className="eyebrow">{project.type}</p>
-                  <h3>{project.title}</h3>
-                  <p className="muted">{project.description}</p>
-                </article>
-              );
-            })}
-          </div>
-        </section>
+        <About about={site.about} label={label("about")} />
+        <Education items={site.education} label={label("education")} />
+        <Experience items={site.experience} label={label("experience")} />
+        <Skills groups={site.skills} label={label("skills")} />
+        <Projects
+          projects={site.projects}
+          more={site.moreProjects}
+          label={label("projects")}
+        />
+        <Achievements items={site.achievements} label={label("achievements")} />
 
         <section className="resume-band" id="resume">
           <div>
-            <p className="eyebrow">03 / RESUME</p>
+            <p className="eyebrow">{label("resume")}</p>
             <h2>Want the full overview?</h2>
           </div>
 
@@ -226,7 +220,7 @@ function App() {
 
         <section className="contact-section content-section" id="contact">
           <div>
-            <p className="eyebrow">04 / GET IN TOUCH</p>
+            <p className="eyebrow">{label("contact")}</p>
             <h2>
               {site.contact.title.map((line, index) => (
                 <Fragment key={line}>

@@ -1,0 +1,62 @@
+.ac-grid {
+  --ac-accent: var(--accent, #ff5a1f);
+  --ac-line: rgba(255, 255, 255, 0.12);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1.25rem;
+}
+
+.ac-card {
+  overflow: hidden;
+  border: 1px solid var(--ac-line);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.025);
+  transition: border-color 0.25s, transform 0.25s, opacity 0.6s ease;
+}
+
+.ac-card:hover {
+  border-color: color-mix(in srgb, var(--ac-accent) 55%, transparent);
+  transform: translateY(-3px);
+}
+
+.motion .ac-card:not(.is-in) {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.ac-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.ac-text {
+  padding: 1.1rem 1.25rem 1.3rem;
+}
+
+.ac-text h3 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.ac-text p {
+  margin: 0;
+}
+
+.ac-text a {
+  display: inline-block;
+  margin-top: 0.8rem;
+  color: var(--ac-accent);
+  text-decoration: none;
+}
+
+.ac-badge {
+  padding: 0.15rem 0.6rem;
+  border: 1px solid color-mix(in srgb, var(--ac-accent) 60%, transparent);
+  border-radius: 999px;
+  color: var(--ac-accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+}

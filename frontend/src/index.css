@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  font-family: "Manrope", sans-serif;
+  color: #f2f2f0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(113, 59, 142, 0.2), transparent 34%),
+    radial-gradient(ellipse at 88% 18%, rgba(49, 95, 163, 0.19), transparent 36%),
+    radial-gradient(ellipse at 48% 66%, rgba(255, 90, 31, 0.08), transparent 38%),
+    linear-gradient(118deg, #111019, #0b0c0e 40%, #12101a 72%, #0d1118);
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  color: #0b0c0e;
+  background: #ff5a1f;
+}

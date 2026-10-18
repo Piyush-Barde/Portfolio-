@@ -1,0 +1,100 @@
+/* Scoped under .pp. Colors match the current design: orange #ff5a1f, blue #70a2ff. */
+.hero-visual {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Warm glow behind the portrait, on top of your existing dotted panel. */
+.pp {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background:
+    radial-gradient(circle at 50% 55%, rgba(255, 90, 31, 0.18), transparent 48%),
+    radial-gradient(circle at 80% 15%, rgba(112, 162, 255, 0.12), transparent 40%);
+}
+
+/* A square portrait that always fits the panel height, so the whole face stays in view. */
+.pp-frame {
+  position: relative;
+  flex: none;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 4px;
+  background: #111319;
+}
+
+.pp-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  object-fit: cover;
+  object-position: center 12%;
+}
+
+/* Soft fade at the bottom keeps the caption readable on narrow screens. */
+.pp-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 3px;
+  background: linear-gradient(to top, rgba(10, 12, 18, 0.7), transparent 28%);
+  pointer-events: none;
+}
+
+.pp-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #f4f1ec;
+  font-size: clamp(4rem, 12vw, 8rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.pp-fallback span {
+  color: #ff5a1f;
+}
+
+/* Orange corner brackets sit just outside the frame. */
+.pp-corner {
+  position: absolute;
+  z-index: 1;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 0 solid #ff5a1f;
+  pointer-events: none;
+}
+
+.pp-tl {
+  top: -0.6rem;
+  left: -0.6rem;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.pp-br {
+  right: -0.6rem;
+  bottom: -0.6rem;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+}
+
+/* Keep the existing caption above everything. */
+.hero-visual .visual-caption {
+  z-index: 2;
+}
+
+@media (max-width: 560px) {
+  .pp {
+    padding: 1.5rem 1.5rem 2.5rem;
+  }
+}

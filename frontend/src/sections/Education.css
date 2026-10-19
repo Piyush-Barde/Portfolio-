@@ -8,6 +8,8 @@
 }
 
 .edu-card {
+  display: flex;
+  gap: clamp(1rem, 3vw, 1.75rem);
   padding: clamp(1.1rem, 3vw, 1.75rem);
   border: 1px solid var(--ed-line);
   border-radius: 10px;
@@ -23,6 +25,22 @@
 .motion .edu-card:not(.is-in) {
   opacity: 0;
   transform: translateY(20px);
+}
+
+.edu-icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--ed-accent) 14%, transparent);
+  color: var(--ed-accent);
+}
+
+.edu-main {
+  flex: 1;
+  min-width: 0;
 }
 
 .edu-top {
@@ -66,28 +84,109 @@
 }
 
 .edu-degree {
-  margin: 1rem 0 0;
+  margin: 1.1rem 0 0;
+  font-size: 1.05rem;
   font-weight: 500;
+}
+
+/* ---- coursework ---- */
+.edu-work {
+  margin-top: 1.4rem;
+}
+
+.edu-work-label {
+  margin: 0 0 0.7rem;
+  font-weight: 600;
 }
 
 .edu-courses {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin: 1rem 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .edu-courses li {
-  padding: 0.25rem 0.7rem;
+  padding: 0.35rem 0.85rem;
   border: 1px solid var(--ed-line);
   border-radius: 999px;
-  color: var(--ed-muted);
-  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.88rem;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.edu-courses li:hover {
+  border-color: var(--ed-accent);
+  color: var(--ed-accent);
+  transform: translateY(-2px);
+}
+
+.motion .edu-courses li {
+  transition-property: border-color, color, transform, opacity;
+}
+
+.motion .edu-card:not(.is-in) .edu-courses li {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.motion .edu-card.is-in .edu-courses li {
+  animation: edu-pop 0.4s ease backwards;
+  animation-delay: calc(var(--i) * 0.05s + 0.2s);
+}
+
+@keyframes edu-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+/* ---- schooling card ---- */
+.edu-school {
+  display: block;
+}
+
+.edu-school ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.edu-school li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--ed-line);
+}
+
+.edu-school-name {
+  margin: 0;
+  font-weight: 500;
+}
+
+.edu-school .edu-place {
+  margin-top: 0.15rem;
+  font-size: 0.88rem;
+}
+
+.edu-school .edu-dates {
+  margin: 0;
+}
+
+.edu-school .edu-grade {
+  margin-left: 0.6rem;
 }
 
 @media (max-width: 560px) {
+  .edu-card {
+    flex-direction: column;
+  }
+
   .edu-side {
     align-items: flex-start;
   }

@@ -2,8 +2,6 @@
   ================================================================
    YOUR SITE CONTENT: this is the only file you need to edit.
    Change the text, links, photo and projects below, save, done.
-   (App.jsx and the other files just display whatever is here.)
-
    Any section whose list is empty ( [] ) is hidden automatically,
    and the section numbers update by themselves.
   ================================================================
@@ -14,152 +12,257 @@ export const site = {
   firstName: "Piyush",
   lastName: "Barde",
   initials: "PB",
-  role: "AI & DATA SCIENCE STUDENT",
   intro:
-    "I build useful software and intelligent products, bringing ideas from data and code into the real world.",
+    "Building useful technology with an entrepreneurial mindset.",
   availability: "Open to opportunities",
-  caption: "BUILD · LEARN · IMPROVE", // small line under the hero photo
+  caption: "BUILD · LEARN · IMPROVE",
 
-  /* ---- Animations ----
-     true  = smooth entrances, count-up numbers, progress bar
-     false = a calm, static page
-     (People who switch off animations in their system settings always get the static page.) */
-  animations: true,
+  animations: true, // false = calm, static page
 
-  /* ---- Your photo ----
-     "./photo/Piyush_Barde-removebg.png"   (a file inside src/)
-     "/profile.jpg"                       (a file inside public/)
-     "https://example.com/me.jpg"         (an image on the web)
-     If the image can't be found, a "PB." badge is shown instead. */
   photo: "./photo/Piyush_Barde-removebg.png",
 
-  /* ---- Links ---- leave a link as "" to hide it. */
-  email: "your.email@example.com", // TODO: put your real email
+  /* ---- Links (leave "" to hide) ---- */
+  email: "work.piyushbarde01@gmail.com",
   github: "https://github.com/Piyush-Barde",
-  linkedin: "#", // TODO: put your LinkedIn URL
-  resume: "/resume.pdf", // put resume.pdf in the public/ folder
+  linkedin: "https://www.linkedin.com/in/piyush-barde",
+  resume: "/Piyush Barde Resume.pdf", // put resume.pdf in the public/ folder
 
-  /* ---- Strip under the hero ---- */
   ticker: [
     "BASED IN INDIA",
     "PYTHON · REACT · MACHINE LEARNING",
     "AVAILABLE FOR OPPORTUNITIES",
   ],
 
-  /* ---- Numbers under the hero. A number counts up; text (like "2027") is shown as is.
-     TODO: placeholders, replace with your real numbers. ---- */
+  /* ---- Numbers under the hero (numbers count up, text is shown as is) ---- */
   stats: [
-    { value: 3, suffix: "+", label: "Projects built" },
-    { value: 5, suffix: "+", label: "Technologies used" },
+    { value: 4, suffix: "", label: "Projects built" },
+    { value: 2, suffix: "", label: "Internships" },
     { value: "2027", suffix: "", label: "Graduating" },
   ],
 
-  /* ---- Featured project (currently hidden) ---- */
   featured: null,
 
   /* ---- About ---- */
   about: {
     note: "Curious by nature. Focused on impact.",
-    text: "I’m an AI and Data Science student interested in machine learning and backend development. I enjoy turning real-world problems into practical software. Update this paragraph with your own story.",
+    text: "I’m a final-year AI and Data Science engineering student who enjoys the full path from data to product: training and evaluating machine learning models, then wrapping them in real web apps with React and backend APIs. I’ve interned as an AI developer and a full stack developer, led the tech side of my college E-Cell, and I’m looking for opportunities where I can keep building things people actually use.",
     focus: [
       "Building machine learning projects from data to deployment",
-      "Learning backend development and clean API design",
+      "Full stack development with React, FastAPI and Spring Boot",
       "Turning real-world problems into practical software",
     ],
   },
 
-  /* ---- Education (copy a block to add another) ---- */
-  education: [
+  /* ---- Education ---- */
+      education: [
     {
-      school: "Your college name", // TODO
-      place: "City, State",
-      degree: "Your degree and branch",
-      dates: "20XX – 20XX",
-      grade: "CGPA X.X", // leave "" to hide
-      courses: ["Add key courses here", "Machine Learning", "Data Structures"],
+      school: "Datta Meghe College of Engineering",
+      place: "Navi Mumbai, Maharashtra",
+      degree: "Bachelor of Engineering in Artificial Intelligence & Data Science",
+      dates: "2023 – 2027",
+      grade: "7.5 CGPA",
+      // TODO: replace with the subjects you actually studied / are proud of
+      courses: [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Deep Learning",
+        "Probability and Statistics",
+        "Data Structures & Algorithms",
+        "Database Management Systems",
+        "Natural Language Processing",
+        "Data Visualization",
+        "Cloud Computing",
+      ],
     },
-  ],
 
-  /* ---- Experience (newest first). Set `current: true` on the one you're doing now. ---- */
+    // compact: true = shown as one slim row in the "Schooling" card.
+    // Marks are hidden while grade is "", so type one in only if you ever want it shown.
+    { compact: true, school: "Shri Shivaji Kanishth Vidyalaya", place: "Jalna", degree: "Class XII · MSBSHSE", dates: "2023", grade: "" },
+    { compact: true, school: "Podar International School", place: "Chhatrapati Sambhajinagar", degree: "Class X · ICSE", dates: "2021", grade: "" },
+  ],  
+
+  /* ---- Experience (newest first) ---- */
   experience: [
     {
-      role: "Role title", // TODO
-      company: "Company or organisation",
-      dates: "Month 20XX – Present",
-      current: true,
-      tags: ["Python", "React"],
-      bullets: ["What you built or owned, in one line."],
-      impact: "One sentence on the result, ideally with a number.",
+      role: "Full Stack Developer Intern",
+      company: "Sponzo Pvt. Ltd.",
+      dates: "Dec 2025 – Jan 2026 · Remote",
+      current: false,
+      tags: ["React", "REST APIs", "Render"],
+      bullets: [
+        "Developed and deployed the company’s production website with a responsive experience across desktop and mobile.",
+        "Integrated backend APIs, improved UI responsiveness and managed deployment on Render.",
+      ],
+      impact: "", // add one line with a result/number if you have it
+    },
+    {
+      role: "AI Developer Intern",
+      company: "Krawlnet Technologies",
+      dates: "June 2025 – July 2025 · On-site",
+      current: false,
+      tags: ["Python", "NLP", "BERT", "Hugging Face"],
+      bullets: [
+        "Built data preprocessing pipelines for large text datasets to support NLP model training and evaluation.",
+        "Fine-tuned BERT-based transformer models with Hugging Face through hyperparameter optimisation and experiments.",
+        "Evaluated text classifiers using accuracy, precision, recall and F1-score.",
+      ],
+      impact: "",
     },
   ],
 
-  /* ---- Skills: each group becomes one tab. ---- */
+  /* ---- Skills: each group becomes one tab ---- */
   skills: [
-    { name: "Languages", items: ["Python", "JavaScript"] },
-    { name: "AI & Data", items: ["Machine Learning", "Data Science"] },
-    { name: "Web & Backend", items: ["React", "Backend Development"] },
+    { name: "Languages", items: ["Python", "SQL", "R", "Java", "C", "JavaScript"] },
+    {
+      name: "AI & ML",
+      items: [
+        "Machine Learning",
+        "Deep Learning",
+        "Neural Networks",
+        "Scikit-learn",
+        "Transformers (Hugging Face)",
+        "XGBoost",
+      ],
+    },
+    { name: "Data Science", items: ["Pandas", "NumPy", "Power BI", "SPSS"] },
+    {
+      name: "Web & Tools",
+      items: [
+        "React",
+        "HTML",
+        "CSS",
+        "Bootstrap",
+        "MySQL",
+        "Git & GitHub",
+        "Google Cloud Platform",
+        "Figma",
+      ],
+    },
   ],
 
   /* ---- Main projects ----
-     summary : the problem it solves, in one line
-     results : 1–3 short bullets, numbers work best
-     diagram : a small animated flow. Or use `image` for a screenshot.
-     code / demo / image / status are optional: leave "" to hide. */
+     code / demo: add your repo and live links (leave "" to hide). */
   projects: [
     {
-      title: "Project One",
-      type: "AI / MACHINE LEARNING",
-      status: "", // e.g. "In progress"
-      summary: "Add a short description of the problem this project solves.",
-      results: ["Add a result with a number, for example “cut manual work by 40%”."],
-      tags: ["Python", "Machine learning"],
-      meta: "Personal project · 2026",
-      code: "https://github.com/Piyush-Barde",
+       title: "VoxSense AI",
+        type: "NLP / SPEECH ANALYTICS",
+       status: "Completed",
+       summary: "A multimodal AI communication coach that evaluates spoken language, vocal delivery, and facial-expression cues during live presentations.",
+       results: [
+        "Integrated OpenAI Whisper for speech-to-text transcription and NLP-based speech analysis.",
+        "Analyzed filler words, vocabulary diversity, speaking duration, pitch variation, pauses, and vocal energy.",
+        "Used OpenCV and DeepFace to extract facial-expression cues and generate structured presentation feedback."
+        ],
+       tags: [
+        "Python","NLP", "OpenAI Whisper", "OpenCV","DeepFace","Librosa","TensorFlow"
+        ],
+      meta: "Oct 2026",
+      code: "",
       demo: "",
       image: "",
-      diagram: { label: "ML PIPELINE", steps: ["Data", "Features", "Model", "Results"], footer: "PYTHON" },
+      diagram: { label: "MULTIMODAL AI PIPELINE", steps: [ "Live Recording","Speech Transcription","NLP & Voice Analysis","Facial Analysis","Feedback"] }, 
     },
     {
-      title: "Project Two",
-      type: "WEB DEVELOPMENT",
+      title: "Campus Signal",
+      type: "FULL STACK WEB APP",
       status: "",
-      summary: "Describe what you built and who it helps.",
-      results: ["Add what it does or how well it works."],
-      tags: ["React", "JavaScript"],
-      meta: "Personal project · 2026",
-      code: "https://github.com/Piyush-Barde",
+      summary: "A campus grievance platform for reporting and tracking issues.",
+      results: [
+        "Structured issue reporting with automated tracking workflows.",
+        "Secure database management with PostgreSQL.",
+      ],
+      tags: ["React", "Spring Boot", "Java", "PostgreSQL", "REST APIs"],
+      meta: "Jan 2026 – May 2026",
+      code: "",
       demo: "",
       image: "",
-      diagram: { label: "WEB APP", steps: ["Browser", "React app", "API", "Database"], footer: "REACT" },
+      diagram: { label: "WEB APP", steps: ["React UI", "REST API", "Spring Boot", "PostgreSQL"], footer: "JAVA" },
     },
     {
-      title: "Project Three",
-      type: "DATA / ANALYTICS",
+      title: "Obsidian Watch",
+      type: "AI / FRAUD DETECTION",
       status: "",
-      summary: "Add another project or remove this block.",
-      results: ["Add a finding or outcome."],
-      tags: ["Python", "Data science"],
-      meta: "Personal project · 2026",
-      code: "https://github.com/Piyush-Barde",
+      summary: "A financial fraud detection system that flags suspicious transactions.",
+      results: [
+        "Feature engineering plus XGBoost to spot suspicious transaction patterns.",
+        "Designed to reduce false positives.",
+      ],
+      tags: ["Python", "Scikit-learn", "XGBoost"],
+      meta: "Aug 2025 – Nov 2025",
+      code: "",
       demo: "",
       image: "",
-      diagram: { label: "DATA FLOW", steps: ["Source", "Clean", "Analyse", "Dashboard"], footer: "PYTHON" },
+      diagram: { label: "ML PIPELINE", steps: ["Transactions", "Features", "XGBoost", "Fraud flags"], footer: "PYTHON" },
+    },
+    {
+      title: "CodeLens",
+      type: "AI DEVELOPER TOOL",
+      status: "",
+      summary: "An AI platform that explains source code, visualises execution flow and helps debug errors.",
+      results: [
+        "Explains code and visualises how it runs using the Gemini API.",
+        "Persistent authentication and snippet management.",
+      ],
+      tags: ["React", "FastAPI", "Gemini API"],
+      meta: "Feb 2025 – Mar 2025",
+      code: "",
+      demo: "",
+      image: "",
+      diagram: { label: "AI APP", steps: ["React UI", "FastAPI", "Gemini API", "Explanation"], footer: "FASTAPI" },
+    },
+    {
+      title: "Heart Disease Prediction",
+      type: "MACHINE LEARNING",
+      status: "",
+      summary: "Supervised ML models that predict heart disease risk from clinical patient data.",
+      results: [
+        "Preprocessing, feature engineering and metric-based evaluation of several models.",
+      ],
+      tags: ["Python", "Scikit-learn", "React"],
+      meta: "Jan 2025 – May 2025",
+      code: "",
+      demo: "",
+      image: "",
+      diagram: { label: "ML PIPELINE", steps: ["Patient data", "Preprocess", "Model", "Risk score"], footer: "SCIKIT-LEARN" },
     },
   ],
 
-  /* ---- Smaller projects: one compact line each. Leave [] to hide. ---- */
-  moreProjects: [
-    { title: "Small project", summary: "One sentence about it.", tech: "Python · Pandas", link: "https://github.com/Piyush-Barde" },
-    { title: "Another small project", summary: "One sentence about it.", tech: "React · CSS", link: "" },
+  moreProjects: [],
+
+  /* ---- Achievements ---- */
+  achievements: [
+    {
+      title: "Hackathon Finalist, The Great Ninja Hack",
+      text: "Reached the Top 50 out of 300+ competing teams.",
+      badge: "Top 50 / 300+",
+      image: "",
+      link: "",
+    },
+    {
+      title: "Technical Head, E-Cell DMCE",
+      text: "Oversaw technical operations and led full-stack development of the official E-Cell and ENSPIRE web apps.",
+      badge: "May 2025 – Jun 2026",
+      image: "",
+      link: "",
+    },
+    {
+      title: "Campus Ambassador, IIT Bombay E-Cell",
+      text: "Promoted entrepreneurship initiatives and drove outreach across campus.",
+      badge: "May 2025 – Jan 2026",
+      image: "",
+      link: "",
+    },
+    {
+      title: "NPTEL: Python for Data Science",
+      text: "Certification from IIT Madras, score 65.",
+      badge: "Certification",
+      image: "",
+      link: "",
+    },
   ],
 
-  /* ---- Achievements: hidden while empty.
-     Example: { title: "1st Prize, Hackathon", text: "One line.", badge: "Winner", image: "./photo/award.jpg", link: "" } */
-  achievements: [],
-
-  /* ---- Contact section ---- */
   contact: {
-    title: ["Let’s make", "something useful."], // each item is one line
+    title: ["Let’s make", "something useful."],
     note: "Have an opportunity or just want to say hello?",
   },
 };

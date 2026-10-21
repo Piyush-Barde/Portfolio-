@@ -232,8 +232,8 @@ export const site = {
       status: "Completed",
       summary: "A hospital management web app built with PHP and MySQL for patient registration, appointments, staff and doctor workflows, room management, and pharmacy inventory.",
       results: [
-        "Designed with a focus on user experience and efficient workflow management.",
-        "Integrated with existing healthcare systems for seamless data exchange.",
+        "Role-based workflows for administrators, doctors, and staff to manage hospital operations.",
+        "Modules for patient appointments, hospital rooms, and pharmacy inventory management and seamless data exchange between modules.",
       ],
       tags: ["HTML" , "CSS", "JavaScript", "PHP", "MySQL"],
       meta: "July 2024 – Nov 2024",

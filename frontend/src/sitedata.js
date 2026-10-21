@@ -24,18 +24,18 @@ export const site = {
   /* ---- Links (leave "" to hide) ---- */
   email: "work.piyushbarde01@gmail.com",
   github: "https://github.com/Piyush-Barde",
-  linkedin: "https://www.linkedin.com/in/piyush-barde",
+  linkedin: "www.linkedin.com/in/piyush-barde-b054a8165",
   resume: "/Piyush Barde Resume.pdf", // put resume.pdf in the public/ folder
 
   ticker: [
     "BASED IN INDIA",
-    "PYTHON · REACT · MACHINE LEARNING",
+    "PYTHON · AI · MACHINE LEARNING · DATA SCIENCE",
     "AVAILABLE FOR OPPORTUNITIES",
   ],
 
   /* ---- Numbers under the hero (numbers count up, text is shown as is) ---- */
   stats: [
-    { value: 4, suffix: "", label: "Projects built" },
+    { value: 6, suffix: "", label: "Projects built" },
     { value: 2, suffix: "", label: "Internships" },
     { value: "2027", suffix: "", label: "Graduating" },
   ],
@@ -45,11 +45,11 @@ export const site = {
   /* ---- About ---- */
   about: {
     note: "Curious by nature. Focused on impact.",
-    text: "I’m a final-year AI and Data Science engineering student who enjoys the full path from data to product: training and evaluating machine learning models, then wrapping them in real web apps with React and backend APIs. I’ve interned as an AI developer and a full stack developer, led the tech side of my college E-Cell, and I’m looking for opportunities where I can keep building things people actually use.",
+    text: "I’m an AI & Data Science engineering student interested in building technology that solves real problems. I enjoy exploring how machine learning and data can become useful products, and I bring an entrepreneurial mindset to turning ideas into practical solutions. I’m continuing to grow my skills through coursework and hands-on projects across AI and software development.",
     focus: [
-      "Building machine learning projects from data to deployment",
-      "Full stack development with React, FastAPI and Spring Boot",
-      "Turning real-world problems into practical software",
+      "Building machine-learning projects from data to deployment",
+      "Exploring how AI and data can solve practical problems",
+      "Bringing an entrepreneurial mindset to technology and product ideas",
     ],
   },
 
@@ -88,7 +88,7 @@ export const site = {
       company: "Sponzo Pvt. Ltd.",
       dates: "Dec 2025 – Jan 2026 · Remote",
       current: false,
-      tags: ["React", "REST APIs", "Render"],
+      tags: ["React", "REST APIs", "Render","Python"],
       bullets: [
         "Developed and deployed the company’s production website with a responsive experience across desktop and mobile.",
         "Integrated backend APIs, improved UI responsiveness and managed deployment on Render.",
@@ -163,9 +163,25 @@ export const site = {
       diagram: { label: "MULTIMODAL AI PIPELINE", steps: [ "Live Recording","Speech Transcription","NLP & Voice Analysis","Facial Analysis","Feedback"] }, 
     },
     {
+      title: "CodeLens",
+      type: "AI DEVELOPER TOOL",
+      status: "Completed",
+      summary: "An AI platform that explains source code, visualises execution flow and helps debug errors.",
+      results: [
+        "Explains code and visualises how it runs using the Gemini API.",
+        "Persistent authentication and snippet management.",
+      ],
+      tags: ["React", "FastAPI", "Gemini API","Python"],
+      meta: "Feb 2026 – Mar 2026",
+      code: "",
+      demo: "",
+      image: "",
+      diagram: { label: "AI APP", steps: ["React UI", "FastAPI", "Gemini API", "Explanation"], footer: "FASTAPI" },
+    },
+    {
       title: "Campus Signal",
       type: "FULL STACK WEB APP",
-      status: "",
+      status: "Completed",
       summary: "A campus grievance platform for reporting and tracking issues.",
       results: [
         "Structured issue reporting with automated tracking workflows.",
@@ -181,49 +197,50 @@ export const site = {
     {
       title: "Obsidian Watch",
       type: "AI / FRAUD DETECTION",
-      status: "",
+      status: "Completed",
       summary: "A financial fraud detection system that flags suspicious transactions.",
       results: [
         "Feature engineering plus XGBoost to spot suspicious transaction patterns.",
         "Designed to reduce false positives.",
       ],
-      tags: ["Python", "Scikit-learn", "XGBoost"],
+      tags: ["Python", "Scikit-learn", "XGBoost","React", "FastAPI"],
       meta: "Aug 2025 – Nov 2025",
       code: "",
       demo: "",
       image: "",
       diagram: { label: "ML PIPELINE", steps: ["Transactions", "Features", "XGBoost", "Fraud flags"], footer: "PYTHON" },
     },
-    {
-      title: "CodeLens",
-      type: "AI DEVELOPER TOOL",
-      status: "",
-      summary: "An AI platform that explains source code, visualises execution flow and helps debug errors.",
-      results: [
-        "Explains code and visualises how it runs using the Gemini API.",
-        "Persistent authentication and snippet management.",
-      ],
-      tags: ["React", "FastAPI", "Gemini API"],
-      meta: "Feb 2025 – Mar 2025",
-      code: "",
-      demo: "",
-      image: "",
-      diagram: { label: "AI APP", steps: ["React UI", "FastAPI", "Gemini API", "Explanation"], footer: "FASTAPI" },
-    },
+    
     {
       title: "Heart Disease Prediction",
       type: "MACHINE LEARNING",
-      status: "",
+      status: "Completed",
       summary: "Supervised ML models that predict heart disease risk from clinical patient data.",
       results: [
         "Preprocessing, feature engineering and metric-based evaluation of several models.",
       ],
-      tags: ["Python", "Scikit-learn", "React"],
+      tags: ["Python", "Scikit-learn","Supervised Learning", "React", "Flask"],
       meta: "Jan 2025 – May 2025",
       code: "",
       demo: "",
       image: "",
       diagram: { label: "ML PIPELINE", steps: ["Patient data", "Preprocess", "Model", "Risk score"], footer: "SCIKIT-LEARN" },
+    },
+    {
+      title: "Hospisync - Hospital Management System",
+      type: "WEB APPLICATION",
+      status: "Completed",
+      summary: "A hospital management web app built with PHP and MySQL for patient registration, appointments, staff and doctor workflows, room management, and pharmacy inventory.",
+      results: [
+        "Designed with a focus on user experience and efficient workflow management.",
+        "Integrated with existing healthcare systems for seamless data exchange.",
+      ],
+      tags: ["HTML" , "CSS", "JavaScript", "PHP", "MySQL"],
+      meta: "July 2024 – Nov 2024",
+      code: "",
+      demo: "",
+      image: "",
+      diagram: { label: "HOSPITAL WORKFLOW", steps: ["Patient", "Appointment", "Care team", "Hospital services"], footer: "PHP · MYSQL" },
     },
   ],
 
@@ -255,6 +272,13 @@ export const site = {
     {
       title: "NPTEL: Python for Data Science",
       text: "Certification from IIT Madras, score 65.",
+      badge: "Certification",
+      image: "",
+      link: "",
+    },
+    {
+      title: "NPTEL: Cloud Computing",
+      text: "Certification from IIT Kharagpur, score 65.",
       badge: "Certification",
       image: "",
       link: "",

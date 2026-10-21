@@ -88,7 +88,7 @@ function Projects({ projects = [], more = [], label }) {
           <p className="eyebrow">{label}</p>
           <h2>Projects</h2>
         </div>
-        <p className="section-note">Some things I’ve made</p>
+        <p className="section-note">Some things I’ve built</p>
       </div>
 
       <div className="pj-list">

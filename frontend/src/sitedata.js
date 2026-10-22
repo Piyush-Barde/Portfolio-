@@ -77,8 +77,8 @@ export const site = {
 
     // compact: true = shown as one slim row in the "Schooling" card.
     // Marks are hidden while grade is "", so type one in only if you ever want it shown.
-    { compact: true, school: "Shri Shivaji Kanishth Vidyalaya", place: "Jalna", degree: "Class XII · MSBSHSE", dates: "2023", grade: "" },
-    { compact: true, school: "Podar International School", place: "Chhatrapati Sambhajinagar", degree: "Class X · ICSE", dates: "2021", grade: "" },
+    { compact: true, school: "Shri Shivaji Kanishth Vidyalaya", place: "Jalna", degree: "Class XII · MSBSHSE", dates: "2023", grade: "79%" },
+    { compact: true, school: "Podar International School", place: "Chhatrapati Sambhajinagar", degree: "Class X · ICSE", dates: "2021", grade: "83%" },
   ],  
 
   /* ---- Experience (newest first) ---- */
@@ -112,10 +112,11 @@ export const site = {
 
   /* ---- Skills: each group becomes one tab ---- */
   skills: [
-    { name: "Languages", items: ["Python", "SQL", "R", "Java", "C", "JavaScript"] },
+    { name: "Languages", items: ["Python", "SQL", "R", "C", "JavaScript"] },
     {
       name: "AI & ML",
       items: [
+        "Artificial Intelligence",
         "Machine Learning",
         "Deep Learning",
         "Neural Networks",
@@ -124,18 +125,21 @@ export const site = {
         "XGBoost",
       ],
     },
-    { name: "Data Science", items: ["Pandas", "NumPy", "Power BI", "SPSS"] },
+    { name: "Data Science", items: ["Pandas", "NumPy","Seaborn","Matplotlib","Plotly","Streamlit","Power BI", "SPSS"] },
     {
       name: "Web & Tools",
       items: [
-        "React",
         "HTML",
         "CSS",
         "Bootstrap",
+        "React",
         "MySQL",
-        "Git & GitHub",
+        "Git",
+        "GitHub",
+        "Amazon Web Services",
         "Google Cloud Platform",
         "Figma",
+
       ],
     },
   ],

@@ -1,6 +1,26 @@
 import { useState } from "react";
 import { useInView } from "./useInView.js";
+import { getSkillIcon } from "./skillIcons.js";
 import "./Skills.css";
+
+function Logo({ name }) {
+  const icon = getSkillIcon(name);
+
+  if (!icon) {
+    // No logo for this skill: show a small letter badge instead.
+    return (
+      <span className="sk-logo sk-badge" aria-hidden="true">
+        {name.trim()[0].toUpperCase()}
+      </span>
+    );
+  }
+
+  return (
+    <svg className="sk-logo" viewBox="0 0 24 24" aria-hidden="true" style={{ fill: icon.color }}>
+      <path d={icon.path} />
+    </svg>
+  );
+}
 
 function Skills({ groups = [], label }) {
   const [active, setActive] = useState(0);
@@ -39,7 +59,8 @@ function Skills({ groups = [], label }) {
         <ul className="sk-tiles" role="tabpanel" key={group.name}>
           {group.items.map((item, i) => (
             <li key={item} style={{ "--i": i }}>
-              {item}
+              <Logo name={item} />
+              <span>{item}</span>
             </li>
           ))}
         </ul>

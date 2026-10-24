@@ -66,11 +66,18 @@ const label = (key) =>
 
 // Every contact link, by name. A link with an empty value is hidden.
 const allLinks = {
-  GitHub: { href: site.github, external: true },
-  LinkedIn: { href: site.linkedin, external: true },
-  Email: { href: site.email && `mailto:${site.email}` },
+  GitHub: { href: "https://github.com/Piyush-Barde", external: true },
+  LinkedIn: {
+    href: "https://www.linkedin.com/in/piyush-barde-b054a8165",
+    external: true,
+  },
+  Email: {
+    href: site.email
+      ? `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(site.email)}`
+      : "",
+    external: true,
+  },
 };
-
 // Picks links in the order given, e.g. links("GitHub", "Email").
 function links(...names) {
   return names

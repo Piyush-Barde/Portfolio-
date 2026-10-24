@@ -101,6 +101,7 @@ function SocialLink({ link }) {
 
 function App() {
   const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
 
   // Which case study (if any) is open: the address looks like #/project/<name>
   const hash = useHash();
@@ -155,9 +156,35 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  function handleSubmit(event) {
+  // Sends the form to your Google Sheet (the Apps Script link in siteData.js).
+  async function handleSubmit(event) {
     event.preventDefault();
-    setMessage("The form will be connected to Google Sheets in a later step.");
+    const form = event.currentTarget;
+    const endpoint = site.contact?.endpoint;
+
+    if (!endpoint) {
+      setMessage("The form isn't connected yet. Please email me directly.");
+      return;
+    }
+
+    setSending(true);
+    setMessage("");
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        body: new URLSearchParams(new FormData(form)),
+      });
+      const result = await response.json();
+      if (!result.ok) throw new Error("rejected");
+      form.reset();
+      setMessage("Thanks! Your message was sent. I'll get back to you soon.");
+    } catch {
+      setMessage(
+        "Sorry, that didn't go through. Please try again or email me directly."
+      );
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -276,6 +303,15 @@ function App() {
           </div>
 
           <form className="contact-form" onSubmit={handleSubmit}>
+            {/* Hidden trap field: people never see it, spam bots fill it in. */}
+            <input
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              style={{ position: "absolute", left: "-9999px", opacity: 0 }}
+            />
+
             <label>
               Name
               <input name="name" placeholder="Your name" required />
@@ -301,8 +337,12 @@ function App() {
               />
             </label>
 
-            <button className="button button-primary" type="submit">
-              Send message ↗
+            <button
+              className="button button-primary"
+              type="submit"
+              disabled={sending}
+            >
+              {sending ? "Sending…" : "Send message ↗"}
             </button>
 
             {message && (

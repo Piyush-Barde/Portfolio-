@@ -306,5 +306,6 @@ export const site = {
   contact: {
     title: ["Let’s make", "something useful."],
     note: "Have an opportunity or just want to say hello?",
+     endpoint: "https://script.google.com/macros/s/AKfycbzPNhXdVVp7jJxwMbwlonNWbbtHUoGH_PWLBOM7DiuO2tbRV9l1Gz8-_uadV1iDipMB/exec",
   },
 };

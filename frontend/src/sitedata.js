@@ -28,7 +28,7 @@ export const site = {
   resume: "/Piyush Barde Resume.pdf", // put resume.pdf in the public/ folder
 
   ticker: [
-    "BASED IN INDIA",
+    "MUMBAI, MAHARASHTRA",
     "PYTHON · AI · MACHINE LEARNING · DATA SCIENCE",
     "AVAILABLE FOR OPPORTUNITIES",
   ],

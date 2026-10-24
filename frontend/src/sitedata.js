@@ -139,7 +139,7 @@ export const site = {
         "Amazon Web Services",
         "Google Cloud Platform",
         "Figma",
-
+        "Render"
       ],
     },
   ],

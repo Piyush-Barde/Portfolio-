@@ -178,8 +178,9 @@ function App() {
       if (!result.ok) throw new Error("rejected");
       form.reset();
       setMessage("Thanks! Your message was sent. I'll get back to you soon.");
-       } catch (error) {
+        } catch (error) {
       console.error("Contact form error:", error);
+      setMessage(`Sorry, that didn't go through. (${error.message})`);
     } finally {
       setSending(false);
     }

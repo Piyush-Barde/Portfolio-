@@ -11,6 +11,8 @@ import Skills from "./sections/Skills.jsx";
 import Projects from "./sections/Projects.jsx";
 import Achievements from "./sections/Achievements.jsx";
 import ScrollProgress from "./sections/ScrollProgress.jsx";
+import Header from "./Header.jsx";
+import "./responsive.css";
 
 /*
   This file only lays the page out. All of the text, links, photo and
@@ -42,6 +44,22 @@ const names = {
   resume: "RESUME",
   contact: "GET IN TOUCH",
 };
+
+// Menu links: only the sections that are on the page.
+const navNames = {
+  about: "About",
+  education: "Education",
+  experience: "Experience",
+  skills: "Skills",
+  projects: "Projects",
+  achievements: "Achievements",
+  resume: "Resume",
+  contact: "Contact",
+};
+const navLinks = [
+  { href: "#home", label: "Home" },
+  ...order.map((key) => ({ href: `#${key}`, label: navNames[key] })),
+];
 
 const label = (key) =>
   `${String(order.indexOf(key) + 1).padStart(2, "0")} / ${names[key]}`;
@@ -113,25 +131,12 @@ function App() {
   return (
     <div className={`portfolio${site.animations ? " motion" : ""}`}>
       {site.animations && <ScrollProgress />}
-      <header className="site-header">
-        <a className="logo" href="#home">
-          {site.initials}
-          <span>.</span>
-        </a>
 
-        <nav aria-label="Main navigation">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#resume">Resume</a>
-          <a href="#contact">Contact</a>
-        </nav>
-
-        <a className="availability" href="#contact">
-          ● {site.availability}
-        </a>
-      </header>
+      <Header
+        initials={site.initials}
+        links={navLinks}
+        availability={site.availability}
+      />
 
       <main>
         <section className="hero" id="home">

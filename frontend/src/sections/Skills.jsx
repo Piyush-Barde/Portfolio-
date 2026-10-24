@@ -4,14 +4,47 @@ import { getSkillIcon } from "./skillIcons.js";
 import "./Skills.css";
 
 function Logo({ name }) {
-  const icon = getSkillIcon(name);
+  const [broken, setBroken] = useState(false);
+  const icon = getSkillIcon(name, !broken);
 
   if (!icon) {
-    // No logo for this skill: show a small letter badge instead.
+    // No icon for this skill: show a small letter badge instead.
     return (
       <span className="sk-logo sk-badge" aria-hidden="true">
         {name.trim()[0].toUpperCase()}
       </span>
+    );
+  }
+
+  if (icon.src) {
+    // Your own image file from src/skills/ (falls back to a drawn icon if it won't load)
+    return (
+      <img
+        className="sk-logo sk-img"
+        src={icon.src}
+        alt=""
+        loading="lazy"
+        onError={() => setBroken(true)}
+      />
+    );
+  }
+
+  if (icon.line) {
+    // Drawn icon: outline style, coloured by the accent.
+    return (
+      <svg
+        className="sk-logo"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        style={{ color: "var(--accent, #ff5a1f)" }}
+      >
+        <path d={icon.path} />
+      </svg>
     );
   }
 

@@ -26,3 +26,6 @@
   color: var(--st-muted);
   font-size: 0.95rem;
 }
+.sk-img {
+  object-fit: contain;
+}

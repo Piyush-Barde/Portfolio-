@@ -1,0 +1,155 @@
+/*
+  Hamburger menu. Only active on screens 1024px wide or less;
+  on larger screens your normal App.css header is used untouched.
+*/
+.nav-toggle,
+.nav-availability,
+.nav-backdrop {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  /* Same full-width bar as on desktop, just with logo + button only.
+     Your own App.css background and look are kept. */
+  .portfolio .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline: calc(50% - 50vw);
+    padding-inline: max(1rem, calc(50vw - 50%));
+  }
+
+  /* hide the desktop pill, show the button */
+  .site-header .availability {
+    display: none;
+  }
+
+  .site-header .nav-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-left: auto;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 1.25rem;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+
+  .menu-open .nav-toggle {
+    border-color: var(--accent, #ff5a1f);
+    color: var(--accent, #ff5a1f);
+  }
+  .menu-open .nav-toggle span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .menu-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-open .nav-toggle span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-toggle:focus-visible {
+    outline: 2px solid var(--accent, #ff5a1f);
+    outline-offset: 3px;
+  }
+
+  /* the menu: hidden until opened, then a panel under the bar */
+  .site-header .nav-menu {
+    display: none;
+  }
+
+  .site-header.menu-open .nav-menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    width: auto;
+    height: auto;
+    max-height: calc(100vh - 4rem);
+    margin: 0;
+    padding: 0.5rem 1.25rem 1.25rem;
+    overflow-y: auto;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0;
+    box-shadow: none;
+    background: rgba(8, 9, 12, 0.97);
+    backdrop-filter: blur(10px);
+    text-align: left;
+    animation: nav-drop 0.22s ease;
+  }
+
+  .site-header.menu-open .nav-menu a {
+    display: block;
+    padding: 0.95rem 0.25rem;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    font-size: 1.05rem;
+    text-align: left;
+  }
+
+  .site-header.menu-open .nav-menu a {
+    display: block;
+    padding: 0.95rem 0.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 1.05rem;
+  }
+
+  .site-header.menu-open .nav-menu .nav-availability {
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    font-size: 0.85rem;
+  }
+
+  /* tap outside to close, and dim the page behind the menu */
+  .site-header .nav-backdrop {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    display: block;
+    background: rgba(0, 0, 0, 0.55);
+  }
+}
+
+@keyframes nav-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header.menu-open .nav-menu {
+    animation: none;
+  }
+}

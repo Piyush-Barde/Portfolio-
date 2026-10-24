@@ -1,0 +1,179 @@
+/*
+  Responsive fixes. Loaded last (see App.jsx), so it only adds to your
+  existing styles. Delete this file and its import to undo everything.
+*/
+
+/* ---- safe defaults for every screen ---- */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+img,
+svg,
+video {
+  max-width: 100%;
+}
+.portfolio h1,
+.portfolio h2,
+.portfolio h3,
+.portfolio p,
+.portfolio a {
+  overflow-wrap: break-word;
+}
+
+/* ---- phones and small tablets ---- */
+@media (max-width: 700px) {
+  /* Skills: two tiles per row instead of one */
+  .sk-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+  .sk-tiles li {
+    gap: 0.6rem;
+    padding: 0.8rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  .sk-logo {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+  .sk-tabs button {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.88rem;
+  }
+
+  /* Experience: give the text more room */
+  .exp-list {
+    padding-left: 1.4rem;
+  }
+  .exp-dot {
+    left: -1.35rem;
+  }
+  .exp-card,
+  .edu-card {
+    padding: 1rem;
+  }
+  .exp-top {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  /* Stats: three across, smaller numbers */
+  .stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .stats .stat-value {
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
+  }
+  .stats .stat-label {
+    font-size: 0.8rem;
+  }
+
+  /* Projects: tighter gaps between stories */
+  .pj-list {
+    gap: 2.5rem;
+  }
+  .pj-diagram li {
+    padding: 0.6rem 0.8rem;
+  }
+}
+
+/* very small phones (320–360px) */
+@media (max-width: 360px) {
+  .sk-tiles li {
+    font-size: 0.82rem;
+    padding: 0.7rem 0.6rem;
+  }
+  .sk-logo {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- touch screens: no "stuck" hover effects after a tap ---- */
+@media (hover: none) {
+  .edu-card:hover,
+  .exp-card:hover,
+  .ac-card:hover,
+  .sk-tiles li:hover,
+  .edu-courses li:hover {
+    transform: none;
+  }
+  .pj-more li:hover {
+    padding-left: 0;
+  }
+}
+/* ---- small screens: let rows wrap instead of overflowing ---- */
+@media (max-width: 900px) {
+  .portfolio .hero > *,
+  .portfolio .contact-section > * {
+    min-width: 0;
+  }
+  .portfolio .ticker {
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+  }
+  .portfolio .resume-band {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  /* hero buttons: wrap, and share the width when they sit on their own row */
+  .portfolio .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .portfolio .hero-actions .button + .button {
+    margin-left: 0;
+  }
+  .portfolio .hero-actions .button {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .portfolio .social-links,
+  .portfolio .contact-links {
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+  }
+
+  .portfolio .site-header {
+    padding-inline: max(0.75rem, calc(50vw - 50%));
+  }
+
+  .portfolio .contact-form input,
+  .portfolio .contact-form textarea,
+  .portfolio .contact-form .button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+/* ---- very narrow screens (below 320px) ---- */
+
+/* Vite's default index.css gives the page a 320px minimum width; remove it */
+html,
+body,
+#root {
+  min-width: 0;
+}
+body {
+  width: 100%;
+}
+.portfolio,
+.portfolio main {
+  min-width: 0;
+}
+
+/* grids that never need more room than the screen has */
+.portfolio .ac-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+}
+.portfolio .stats {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+}

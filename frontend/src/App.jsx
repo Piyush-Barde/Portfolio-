@@ -13,6 +13,8 @@ import Achievements from "./sections/Achievements.jsx";
 import ScrollProgress from "./sections/ScrollProgress.jsx";
 import Header from "./Header.jsx";
 import "./responsive.css";
+import CaseStudy from "./sections/CaseStudy.jsx";
+import { useHash, slugFromHash, projectSlug } from "./sections/route.js";
 
 /*
   This file only lays the page out. All of the text, links, photo and
@@ -20,6 +22,7 @@ import "./responsive.css";
 */
 
 const fullName = `${site.firstName} ${site.lastName}`;
+const homeTitle = document.title;
 
 // Sections that are shown, in page order. Empty lists drop out, so the
 // numbers (01, 02, ...) always count only what is visible.
@@ -98,6 +101,28 @@ function SocialLink({ link }) {
 
 function App() {
   const [message, setMessage] = useState("");
+
+  // Which case study (if any) is open: the address looks like #/project/<name>
+  const hash = useHash();
+  const slug = slugFromHash(hash);
+  const caseProject = slug
+    ? site.projects.find((project) => projectSlug(project) === slug)
+    : null;
+
+  // Page title while a case study is open. After closing, scroll back to
+  // the project card and give it keyboard focus.
+  useEffect(() => {
+    if (slug) {
+      document.title = `${caseProject ? caseProject.title : "Not found"} · ${fullName}`;
+      return;
+    }
+    document.title = homeTitle;
+    const target = hash.length > 1 ? document.getElementById(hash.slice(1)) : null;
+    if (target) {
+      target.scrollIntoView();
+      if (target.tagName === "ARTICLE") target.focus({ preventScroll: true });
+    }
+  }, [hash, slug, caseProject]);
 
   useEffect(() => {
     const root = document.querySelector(".portfolio");
@@ -299,6 +324,8 @@ function App() {
         </span>
         <a href="#home">Back to top ↑</a>
       </footer>
+
+      {slug && <CaseStudy key={slug} project={caseProject} />}
     </div>
   );
 }

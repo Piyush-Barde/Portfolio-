@@ -181,6 +181,7 @@ export const site = {
       demo: "https://codelens-rze6.onrender.com",
       image: "",
       diagram: { label: "AI APP", steps: ["React UI", "FastAPI", "Gemini API", "Explanation"], footer: "FASTAPI" },
+      
     },
     {
       title: "Campus Signal",

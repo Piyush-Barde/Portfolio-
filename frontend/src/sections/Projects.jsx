@@ -1,36 +1,21 @@
 import { useInView } from "./useInView.js";
-import { resolveImage } from "../images.js";
+import ProjectVisual from "./ProjectVisual.jsx";
+import { casePath, projectSlug } from "./route.js";
 import "./Projects.css";
-
-function Diagram({ diagram }) {
-  return (
-    <div className="pj-diagram" aria-hidden="true">
-      <p className="pj-diagram-label">{diagram.label}</p>
-      <ol>
-        {diagram.steps.map((step, i) => (
-          <li key={step} style={{ "--i": i }}>
-            {step}
-          </li>
-        ))}
-      </ol>
-      {diagram.footer && <p className="pj-diagram-footer">{diagram.footer}</p>}
-    </div>
-  );
-}
 
 function Story({ project, index }) {
   const [ref, seen] = useInView();
-  const image = resolveImage(project.image);
   const flip = index % 2 === 1;
 
   return (
-    <article className={`pj-story${flip ? " is-flipped" : ""}${seen ? " is-in" : ""}`} ref={ref}>
+    <article
+      className={`pj-story${flip ? " is-flipped" : ""}${seen ? " is-in" : ""}`}
+      ref={ref}
+      id={`project-${projectSlug(project)}`}
+      tabIndex={-1}
+    >
       <div className="pj-visual">
-        {image ? (
-          <img src={image} alt={`${project.title} preview`} loading="lazy" />
-        ) : project.diagram ? (
-          <Diagram diagram={project.diagram} />
-        ) : null}
+        <ProjectVisual project={project} />
       </div>
 
       <div className="pj-body">
@@ -59,7 +44,7 @@ function Story({ project, index }) {
 
         {project.meta && <p className="pj-meta">{project.meta}</p>}
 
-        {(project.code || project.demo) && (
+                {(project.code || project.demo || project.caseStudy) && (
           <div className="pj-links">
             {project.code && (
               <a href={project.code} target="_blank" rel="noreferrer">
@@ -69,6 +54,14 @@ function Story({ project, index }) {
             {project.demo && (
               <a href={project.demo} target="_blank" rel="noreferrer">
                 Live demo ↗
+              </a>
+            )}
+            {project.caseStudy && (
+              <a
+                href={casePath(project)}
+                aria-label={`View full case study: ${project.title}`}
+              >
+                View full case study →
               </a>
             )}
           </div>
@@ -88,7 +81,7 @@ function Projects({ projects = [], more = [], label }) {
           <p className="eyebrow">{label}</p>
           <h2>Projects</h2>
         </div>
-        <p className="section-note">Some things I’ve built</p>
+        <p className="section-note">Some things I’ve made</p>
       </div>
 
       <div className="pj-list">

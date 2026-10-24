@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import "./App.css";
-import ProfilePhoto from "./ProfilePhoto.jsx";
-import { site } from "./siteData.js";
+import ProfilePhoto from "./profilephoto.jsx";
+import { site } from "./sitedata.js";
 import "./motion.css";
 import Stats from "./sections/Stats.jsx";
 import About from "./sections/About.jsx";

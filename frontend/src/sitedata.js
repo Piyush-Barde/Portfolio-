@@ -251,6 +251,34 @@ export const site = {
 
   /* ---- Achievements ---- */
   achievements: [
+  {
+      title: "Technical Head,\nE\u2011Cell DMCE",
+      text: "Led technical operations and development for the official E-Cell and ENSPIRE web apps as Technical Head (May 2025 – June 2026).",
+      badge: "Leadership",
+      image: "",
+      link: "",
+    },
+    {
+      title: "Campus Ambassador,\nE\u2011Cell IIT Bombay",
+      text: "Promoted entrepreneurship initiatives and drove outreach across campus. (May 2025 – Jan 2026)",
+      badge: "Leadership",
+      image: "",
+      link: "",
+    },
+    {
+      title: "Learn Generative AI",
+      text: "Completed a vocational Generative AI course offered by EduBridge with Capgemini.",
+      badge: "Capgemini · 2025",
+      image: "",
+      link: "",
+    },
+    {
+      title: "Research Paper Publication",
+      text: "Published a paper on machine-learning-based heart disease prediction in IRJMETS, April 2025.",
+      badge: "Publication",
+      image: "",
+      link: "",
+    },
     {
       title: "Hackathon Finalist, The Great Ninja Hack",
       text: "Reached the Top 50 out of 300+ competing teams.",
@@ -259,29 +287,15 @@ export const site = {
       link: "",
     },
     {
-      title: "Technical Head, E-Cell DMCE",
-      text: "Oversaw technical operations and led full-stack development of the official E-Cell and ENSPIRE web apps.",
-      badge: "May 2025 – Jun 2026",
-      image: "",
-      link: "",
-    },
-    {
-      title: "Campus Ambassador, IIT Bombay E-Cell",
-      text: "Promoted entrepreneurship initiatives and drove outreach across campus.",
-      badge: "May 2025 – Jan 2026",
-      image: "",
-      link: "",
-    },
-    {
       title: "NPTEL: Python for Data Science",
-      text: "Certification from IIT Madras, score 65.",
+      text: "Certification from IIT Madras, score 70%.",
       badge: "Certification",
       image: "",
       link: "",
     },
     {
       title: "NPTEL: Cloud Computing",
-      text: "Certification from IIT Kharagpur, score 65.",
+      text: "Certification from IIT Kharagpur, score 65%.",
       badge: "Certification",
       image: "",
       link: "",

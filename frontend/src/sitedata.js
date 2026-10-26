@@ -271,7 +271,7 @@ export const site = {
     },
     {
       title: "NEC,\nE\u2011Cell IIT Bombay",
-      text: "Completed entrepreneurship challenges by E-Cell, IIT Bombay, promoting entrepreneurial awareness on and beyond campus. Ranked 39th nationally.(May 2025 – Jan 2026)",
+      text: "Collaborated on national-level entrepreneurship challenges and campus outreach through NEC, E-Cell IIT Bombay. Ranked 39th among 2,000–3,000 teams. (May 2025 – Jan 2026)",
       badge: "Leadership",
       image: "./photo/NEC.png",
       link: "",

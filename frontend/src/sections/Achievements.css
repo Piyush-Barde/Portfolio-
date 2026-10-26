@@ -1,3 +1,4 @@
+
 .ac-grid {
   --ac-accent: var(--accent, #ff5a1f);
   --ac-line: rgba(255, 255, 255, 0.12);
@@ -8,6 +9,7 @@
 }
 
 .ac-card {
+  position: relative;
   overflow: hidden;
   border: 1px solid var(--ac-line);
   border-radius: 10px;
@@ -25,80 +27,13 @@
   transform: translateY(20px);
 }
 
-.ac-media {
-  position: relative;
-}
-
-.ac-media img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-}
-
-/* "View certificate" appears over the picture on hover or keyboard focus */
-.ac-overlay {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  background: rgba(6, 7, 10, 0.55);
-  opacity: 0;
-  transition: opacity 0.25s;
-}
-
-.ac-card:hover .ac-overlay,
-.ac-card:focus-within .ac-overlay {
-  opacity: 1;
-}
-
-.ac-view-btn {
-  padding: 0.7rem 1.2rem;
-  min-height: 44px;
-  border: 1px solid var(--ac-accent);
-  border-radius: 6px;
-  background: var(--ac-accent);
-  color: #fff;
-  font: inherit;
-  font-weight: 600;
-  cursor: pointer;
-  transform: translateY(6px);
-  transition: transform 0.25s, filter 0.2s;
-}
-
-.ac-card:hover .ac-view-btn,
-.ac-card:focus-within .ac-view-btn {
-  transform: none;
-}
-
-.ac-view-btn:hover {
-  filter: brightness(1.1);
-}
-
-.ac-view-btn:focus-visible,
-.ac-link:focus-visible,
-.ac-close:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 3px;
-}
-
-/* phones and tablets have no hover, so the button is always there */
-@media (hover: none) {
-  .ac-overlay {
-    opacity: 1;
-    place-items: end start;
-    padding: 0.75rem;
-    background: linear-gradient(to top, rgba(6, 7, 10, 0.6), transparent 55%);
-  }
-
-  .ac-view-btn {
-    transform: none;
-    padding: 0.5rem 0.9rem;
-  }
-}
-
 .ac-text {
   padding: 1.1rem 1.25rem 1.3rem;
+}
+
+/* Extra bottom space only for cards with a View button */
+.ac-text:has(.ac-view-btn) {
+  padding-bottom: 2.4rem;
 }
 
 .ac-text h3 {
@@ -110,18 +45,6 @@
   margin: 0;
 }
 
-.ac-link {
-  display: inline-block;
-  margin-top: 0.8rem;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--ac-accent);
-  font: inherit;
-  text-decoration: none;
-  cursor: pointer;
-}
-
 .ac-badge {
   padding: 0.15rem 0.6rem;
   border: 1px solid color-mix(in srgb, var(--ac-accent) 60%, transparent);
@@ -131,9 +54,64 @@
   font-weight: 600;
 }
 
-/* ---- certificate pop-up ---- */
+/* View link at the bottom of the card */
+.ac-view-btn {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 0.75rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ac-accent);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.ac-card:hover .ac-view-btn,
+.ac-card:has(.ac-view-btn:focus-visible) .ac-view-btn {
+  opacity: 1;
+}
+
+.ac-view-btn:hover {
+  text-decoration: underline;
+}
+
+.ac-view-btn:focus-visible,
+.ac-link:focus-visible,
+.ac-close:focus-visible {
+  outline: 2px solid var(--ac-accent);
+  outline-offset: 3px;
+}
+
+/* Phones and tablets have no hover */
+@media (hover: none) {
+  .ac-view-btn {
+    opacity: 1;
+  }
+}
+
+/* Plain web link for achievements without a certificate */
+.ac-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ac-accent);
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Certificate popup */
 .ac-dialog {
   --ac-accent: var(--accent, #ff5a1f);
+
   width: 100%;
   max-width: none;
   height: 100%;
@@ -215,10 +193,6 @@
 .ac-close:hover {
   background: var(--ac-accent);
   color: #fff;
-}
-
-.ac-dialog .ac-close:focus-visible {
-  outline-color: var(--ac-accent);
 }
 
 .ac-view {

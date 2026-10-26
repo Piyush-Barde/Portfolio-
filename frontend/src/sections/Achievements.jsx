@@ -73,43 +73,30 @@ function Certificate({ item, file, onClose }) {
 function Card({ item }) {
   const [ref, seen] = useInView();
   const [open, setOpen] = useState(false);
-  const image = resolveImage(item.image);
-  // `certificate` can be an image or a PDF; if you leave it out, the card image is shown.
-  const file = resolveImage(item.certificate) || item.certificate || image;
-  const canView = Boolean(file);
+  // The certificate (image or PDF) is only shown in the pop-up, never on the card.
+  const file =
+    resolveImage(item.certificate) || item.certificate || resolveImage(item.image);
 
   return (
     <article className={`ac-card${seen ? " is-in" : ""}`} ref={ref}>
-      {image && (
-        <div className="ac-media">
-          <img src={image} alt={item.title} loading="lazy" />
-          {canView && (
-            <div className="ac-overlay">
-              <button
-                type="button"
-                className="ac-view-btn"
-                onClick={() => setOpen(true)}
-                aria-label={`View certificate: ${item.title}`}
-              >
-                View certificate
-              </button>
-            </div>
-          )}
-        </div>
-      )}
-
       <div className="ac-text">
         {item.badge && <span className="ac-badge">{item.badge}</span>}
         <h3>{item.title}</h3>
         {item.text && <p className="muted">{item.text}</p>}
 
-        {/* no picture on the card: a plain link instead */}
-        {!image && canView && (
-          <button type="button" className="ac-link" onClick={() => setOpen(true)}>
-            View certificate ↗
+        {file && (
+          <button
+            type="button"
+            className="ac-view-btn"
+            onClick={() => setOpen(true)}
+            aria-label={`View certificate: ${item.title}`}
+          >
+            View ↗
           </button>
         )}
-        {!canView && item.link && (
+
+        {/* no certificate file, but a web link: keep a plain link */}
+        {!file && item.link && (
           <a className="ac-link" href={item.link} target="_blank" rel="noreferrer">
             View ↗
           </a>

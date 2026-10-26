@@ -48,9 +48,9 @@ export const site = {
     text: "I’m an AI & Data Science engineering student interested in building technology that solves real problems. I enjoy exploring how machine learning and data can become useful products, and I bring an entrepreneurial mindset to turning ideas into practical solutions. I’m continuing to grow my skills through coursework and hands-on projects across AI and software development. Outside tech, I’m passionate about aviation, bike and also enjoy cooking.",
     //and working toward becoming a pilot. I also enjoy cooking and bikes.",
     focus: [
-      "Building machine-learning projects from data to deployment",
       "Exploring how AI and data can solve practical problems",
       "Bringing an entrepreneurial mindset to technology and product ideas",
+      "Seeking opportunities to apply my knowledge beyond the classroom"
     ],
   },
 

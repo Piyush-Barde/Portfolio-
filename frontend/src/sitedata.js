@@ -29,8 +29,8 @@ export const site = {
 
   ticker: [
     "MUMBAI, MAHARASHTRA",
-    "PYTHON · AI · MACHINE LEARNING · DATA SCIENCE",
-    "AVAILABLE FOR OPPORTUNITIES",
+    "PYTHON · ARTIFICIAL INTELLIGENCE · DATA SCIENCE",
+    "TURNING IDEAS INTO IMPACT",
   ],
 
   /* ---- Numbers under the hero (numbers count up, text is shown as is) ---- */

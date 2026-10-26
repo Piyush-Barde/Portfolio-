@@ -70,6 +70,7 @@ export const site = {
         "Probability and Statistics",
         "Data Structures & Algorithms",
         "Database Management Systems",
+        "Data Warehousing",
         "Natural Language Processing",
         "Data Visualization",
         "Cloud Computing",
